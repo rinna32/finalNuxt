@@ -1,11 +1,11 @@
 <template>
   <div class="max-w-7xl mx-auto px-6 py-12">
-    
+    <h2 class="mb-10 text-[28px] text-black font-light italic tracking-tight">Discounts up to -50%</h2>
 
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div 
-        v-for="(product, index) in data?.slice(0, 8)" 
+        v-for="(product, index) in data?.slice(0, 4)" 
         :key="product.id"
         class="bg-white rounded-lg p-6 relative">
 
@@ -43,8 +43,6 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script setup lang="ts">

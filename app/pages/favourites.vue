@@ -1,6 +1,5 @@
 <template>
-
-<ProductCard/>
+<h1>favourites</h1>
 
 <Footer/>
 </template>

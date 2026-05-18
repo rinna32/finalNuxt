@@ -6,7 +6,7 @@
            <img src="/logo.png" class="h-14 w-auto"/>
         </NuxtLink>
         <div class="flex items-center gap-6">
-          <NuxtLink to="/catalog">
+          <NuxtLink to="/favourites">
             <img src="/Favorites.png"/>
           </NuxtLink>
           <NuxtLink to="/cart" class="relative"> 

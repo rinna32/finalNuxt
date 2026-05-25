@@ -1,17 +1,17 @@
 <template>
   <div class="flex flex-col items-center justify-center gap-3 p-10 bg-[#FAFAFA] rounded-2xl w-fit min-w-[280px]">
     
-    <!-- Рейтинг (большая цифра) -->
+
     <span class="text-[64px] font-light text-black leading-none">
       {{ value }}
     </span>
 
-    <!-- Текст "of 125 reviews" -->
+
     <span class="text-base text-[#B0B0B0] italic font-light">
       of 125 reviews
     </span>
 
-    <!-- Звёзды -->
+
     <div class="flex justify-center">
       <el-rate
         v-model="value"
@@ -41,7 +41,7 @@ const voidColor = '#E4E7ED'
 }
 
 .custom-rate :deep(.el-rate__icon) {
-  font-size: 24px; /* Устанавливаем размер через CSS */
+  font-size: 24px; 
   margin-right: 4px;
 }
 

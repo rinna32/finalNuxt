@@ -5,25 +5,25 @@ const emit = defineEmits(['filter-change'])
 
 const { data: products } = await useFetch('http://localhost:1452/api/products/')
 
-// Состояние аккордеона
+
 const openSections = ref({
     category: true,
     discount: false,
     rating: false
 })
 
-// Храним выбранные значения как МАССИВЫ
+
 const selectedFilters = ref({
-    category: [],    // ['phones', 'laptops']
-    discount: [],    // ['true'] или ['false']
-    rating: []       // ['4', '3']
+    category: [],
+    discount: [],
+    rating: []
 })
 
 const toggleSection = (section) => {
     openSections.value[section] = !openSections.value[section]
 }
 
-// Получение категорий из API
+
 const categories = computed(() => {
     if (!products.value) return []
 
@@ -47,7 +47,7 @@ const categories = computed(() => {
     }))
 })
 
-// Опции скидки
+
 const discountOptions = computed(() => {
     if (!products.value) return []
     const withDiscount = products.value.filter(p => p.discount || p.discounted || p.oldPrice).length
@@ -57,30 +57,30 @@ const discountOptions = computed(() => {
     ]
 })
 
-// Опции рейтинга
+
 const ratingOptions = [
-    { value: '4', label: '4★ и выше' },
-    { value: '3', label: '3★ и выше' },
-    { value: '2', label: '2★ и выше' },
-    { value: '1', label: '1★ и выше' }
+    { value: '4', label: '4 и выше' },
+    { value: '3', label: '3 и выше' },
+    { value: '2', label: '2 и выше' },
+    { value: '1', label: '1 и выше' }
 ]
 
-// 🔄 Логика для чекбоксов: добавляем или убираем значение из массива
+
 const toggleFilter = (type, value) => {
     const index = selectedFilters.value[type].indexOf(value)
 
     if (index === -1) {
-        // Добавляем, если нет в массиве
+
         selectedFilters.value[type].push(value)
     } else {
-        // Убираем, если уже есть
+
         selectedFilters.value[type].splice(index, 1)
     }
 
     emit('filter-change', { ...selectedFilters.value })
 }
 
-// Проверка, выбран ли чекбокс
+
 const isChecked = (type, value) => {
     return selectedFilters.value[type].includes(value)
 }
@@ -112,12 +112,10 @@ const hasActiveFilters = computed(() => {
         <div class="border-b border-gray-200 last:border-b-0 pb-4 mb-4">
             <button @click="toggleSection('category')" class="w-full flex items-center justify-between py-2 text-left">
                 <span class="font-medium text-gray-900">Categories</span>
-                <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': openSections.category }" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <!-- <img src="" alt="">  для стрелочки -->
             </button>
-                        <div v-show="openSections.category" class="mt-3 space-y-2">
+
+            <div v-show="openSections.category" class="mt-3 space-y-2">
                 <label v-for="category in categories" :key="category.value"
                     class="flex items-center gap-3 cursor-pointer">
                     <input type="checkbox" :value="category.value" :checked="isChecked('category', category.value)"
@@ -128,14 +126,10 @@ const hasActiveFilters = computed(() => {
                 </label>
             </div>
         </div>
-
-        <div class="border-b border-gray-200 last:border-b-0 pb-4 mb-4">
+                <div class="border-b border-gray-200 last:border-b-0 pb-4 mb-4">
             <button @click="toggleSection('discount')" class="w-full flex items-center justify-between py-2 text-left">
                 <span class="font-medium text-gray-900">Sale</span>
-                <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': openSections.discount }" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <!-- <img src="" alt="">  для стрелочки -->
             </button>
 
             <div v-show="openSections.discount" class="mt-3 space-y-2">
@@ -154,10 +148,7 @@ const hasActiveFilters = computed(() => {
         <div>
             <button @click="toggleSection('rating')" class="w-full flex items-center justify-between py-2 text-left">
                 <span class="font-medium text-gray-900">Rating</span>
-                <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': openSections.rating }" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <!-- <img src="" alt="">  для стрелочки -->
             </button>
 
             <div v-show="openSections.rating" class="mt-3 space-y-2">

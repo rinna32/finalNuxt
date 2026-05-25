@@ -1,6 +1,5 @@
 <template>
   <div class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="mb-10 text-[28px] text-black font-light italic tracking-tight">Discounts up to -50%</h2>
 
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -37,9 +36,10 @@
         </p>
 
       
-        <button class="w-full bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors text-sm">
-          Buy Now
-        </button>
+        <NuxtLink :to="`/product/${product.id}`"
+      class="w-full bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors text-sm">
+      Buy Now
+    </NuxtLink>
       </div>
     </div>
   </div>

@@ -2,9 +2,7 @@
 import { computed } from 'vue'
 import type { Products } from '~/types/Products'
 
-const props = defineProps<{
-  product: Products
-}>()
+const props = defineProps<{product: Products}>()
 
 const { addToCart } = useCart()
 const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites()

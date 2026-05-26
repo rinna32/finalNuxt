@@ -12,7 +12,9 @@ onMounted(async () => {
 
 const results = computed(() => {
   if (!query.value.trim()) return []
+
   const q = query.value.toLowerCase()
+
   return products.value.filter(p => 
     p.name.toLowerCase().includes(q) || 
     p.brand?.toLowerCase().includes(q)
@@ -22,8 +24,6 @@ const results = computed(() => {
 
 const getImage = (p: Products): string | undefined => {
   const first = p.images?.[0] as any
-  
-  if (!first) return undefined
   
 
   if (typeof first === 'string') {

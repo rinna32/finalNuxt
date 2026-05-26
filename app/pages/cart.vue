@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { Products } from '~/types/Products'
-import type { CartItem } from '~/composables/useCart'
 
 const { cart, removeFromCart, updateQuantity } = useCart()
 
@@ -12,9 +10,9 @@ const promoMessage = ref<{ type: 'success' | 'error'; text: string } | null>(nul
 
 
 const promoDatabase = [
-    { code: 'SAVE10', discount: 10, type: 'percent' as const, expiryDate: '2025-12-31' },
-    { code: 'WELCOME50', discount: 50, type: 'fixed' as const, expiryDate: '2026-12-01' },
-    { code: 'SUMMER20', discount: 20, type: 'percent' as const, expiryDate: '2026-12-12' }
+    { code: 'WELCOME', discount: 10, type: 'percent' as const, expiryDate: '2025-12-31' },
+    { code: 'FRIEND', discount: 50, type: 'fixed' as const, expiryDate: '2026-12-01' },
+    { code: 'BLACKFRIDAY', discount: 20, type: 'percent' as const, expiryDate: '2026-12-12' }
 ]
 
 const applyPromo = () => {

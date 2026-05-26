@@ -18,7 +18,7 @@ const categoryUrl = computed(() => {
 })
 
 
-const { data: products, pending, error, refresh } = await useFetch(categoryUrl, {
+const { data: products, pending } = await useFetch(categoryUrl, {
   default: () => []
 })
 

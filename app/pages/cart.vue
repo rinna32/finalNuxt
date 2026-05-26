@@ -179,8 +179,8 @@ const handleCheckout = () => {
                
                     <div v-if="appliedPromo" 
                         class="mt-3 flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-3 py-2">
-                        <span class="text-sm font-medium text-green-800">✅ {{ appliedPromo.code }} applied</span>
-                        <button @click="removePromo" class="text-xs text-red-500 hover:underline">Remove</button>
+                        <span class="text-sm font-medium"> {{ appliedPromo.code }} applied</span>
+                        <button @click="removePromo" class="text-xshover:underline">Remove</button>
                     </div>
                 </div>
                 

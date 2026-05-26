@@ -129,7 +129,7 @@ const selectTab = (tabName) => {
           <NuxtLink to="/catalog">
             <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
-          <img src="/phones.png"/>
+          <img src="/Phones.png"/>
           <span class="text-[14px] text-black font-light italic">Phones</span>
         </div>
           </NuxtLink>

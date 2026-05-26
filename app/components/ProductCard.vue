@@ -1,4 +1,3 @@
-<!-- app/components/ProductCard.vue -->
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Products } from '~/types/Products'
@@ -28,7 +27,7 @@ const handleAddToCart = () => {
 <template>
   <div class="bg-white rounded-lg p-6 relative group hover:shadow-lg transition-shadow duration-300">
     
-    <!-- Кнопка избранного -->
+
     <button 
       @click="toggleFavorite"
       class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors z-10"
@@ -41,7 +40,7 @@ const handleAddToCart = () => {
       />
     </button>
 
-    <!-- Изображение товара -->
+
     <NuxtLink :to="`/product/${product.id}`" class="block">
       <div class="flex justify-center mb-4">
         <img 
@@ -52,18 +51,18 @@ const handleAddToCart = () => {
         />
       </div>
 
-      <!-- Название -->
+
       <h4 class="text-center text-sm font-light italic text-gray-900 mb-2 line-clamp-2">
         {{ product.name }}
       </h4>
 
-      <!-- Цена -->
+
       <p class="text-center text-xl font-light text-gray-900 mb-5">
         ${{ product.price }}
       </p>
     </NuxtLink>
 
-    <!-- Кнопка в корзину -->
+
     <button 
       @click="handleAddToCart"
       class="w-full bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"

@@ -139,11 +139,22 @@ const showingRange = computed(() => {
 </script>
 
 <template>
+  <div class="max-w-7xl mx-auto px-6 py-6">
+            <NuxtLink to="/"
+                class="inline-flex items-center text-sm text-gray-500 hover:text-black transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Назад на главную
+            </NuxtLink>
+        </div>
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="flex flex-col lg:flex-row gap-8">
                       <aside class="w-full lg:w-1/4">
                 <ProductFilters @filter-change="handleFilterChange" />
             </aside>
+
+          
 
             <main class="w-full lg:w-3/4">
 

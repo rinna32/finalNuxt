@@ -1,4 +1,3 @@
-// composables/useFavorites.ts
 import type { Products } from '~/types/Products'
 
 export const useFavorites = () => {
@@ -10,14 +9,14 @@ export const useFavorites = () => {
         }
     }
 
-    const removeFromFavorites = (productId: string) => {  // 🔁 string
+    const removeFromFavorites = (productId: string) => { 
         const index = favorites.value.findIndex(item => item.id === productId)
         if (index !== -1) {
             favorites.value.splice(index, 1)
         }
     }
 
-    const isInFavorites = (productId: string): boolean => {  // 🔁 string
+    const isInFavorites = (productId: string): boolean => { 
         return favorites.value.some(item => item.id === productId)
     }
 

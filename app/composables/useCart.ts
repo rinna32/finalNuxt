@@ -1,8 +1,8 @@
-// composables/useCart.ts
+
 import type { Products } from '~/types/Products'
 
 export interface CartItem {
-    id: string              // 🔁 string, как в Products.id
+    id: string 
     product: Products
     quantity: number
 }
@@ -17,21 +17,21 @@ export const useCart = () => {
             existingItem.quantity += quantity
         } else {
             cart.value.push({
-                id: product.id,  // product.id — string
+                id: product.id,
                 product,
                 quantity
             })
         }
     }
 
-    const removeFromCart = (productId: string) => {  // 🔁 string
+    const removeFromCart = (productId: string) => {  
         const index = cart.value.findIndex(item => item.id === productId)
         if (index !== -1) {
             cart.value.splice(index, 1)
         }
     }
 
-    const updateQuantity = (productId: string, quantity: number) => {  // 🔁 string
+    const updateQuantity = (productId: string, quantity: number) => { 
         const item = cart.value.find(item => item.id === productId)
         if (item) {
             item.quantity = Math.max(1, quantity)

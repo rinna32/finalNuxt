@@ -129,7 +129,6 @@ const hasActiveFilters = computed(() => {
                 <div class="border-b border-gray-200 last:border-b-0 pb-4 mb-4">
             <button @click="toggleSection('discount')" class="w-full flex items-center justify-between py-2 text-left">
                 <span class="font-medium text-gray-900">Sale</span>
-                <!-- <img src="" alt="">  для стрелочки -->
             </button>
 
             <div v-show="openSections.discount" class="mt-3 space-y-2">
@@ -148,7 +147,6 @@ const hasActiveFilters = computed(() => {
         <div>
             <button @click="toggleSection('rating')" class="w-full flex items-center justify-between py-2 text-left">
                 <span class="font-medium text-gray-900">Rating</span>
-                <!-- <img src="" alt="">  для стрелочки -->
             </button>
 
             <div v-show="openSections.rating" class="mt-3 space-y-2">

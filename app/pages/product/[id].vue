@@ -29,7 +29,7 @@ const handleAddToCart = () => {
     addToCart(product.value, 1)
 }
 
-// Безопасное получение изображения
+
 const getProductImage = (img: any): string => {
     if (!img) return '/placeholder.png'
     if (typeof img === 'object' && img.image_link) {
@@ -53,13 +53,12 @@ const getProductImage = (img: any): string => {
             </NuxtLink>
         </div>
 
-        <!-- Товар -->
+   
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-                <!-- Галерея -->
+              
                 <div class="flex gap-4">
-                    <!-- Миниатюры -->
                     <div class="flex flex-col gap-3 flex-shrink-0">
                         <div v-for="(img, i) in product?.images" :key="i" @click="activeImage = i" :class="[
                             'w-20 h-24 rounded-lg border-2 cursor-pointer overflow-hidden p-1 transition-all',
@@ -72,14 +71,13 @@ const getProductImage = (img: any): string => {
                         </div>
                     </div>
 
-                    <!-- Основная картинка -->
                     <div class="flex-1 flex items-center justify-center bg-white">
                         <img :src="getProductImage(product?.images?.[activeImage])" :alt="product?.name"
                             class="max-h-[480px] object-contain" />
                     </div>
                 </div>
 
-                <!-- Информация -->
+
                 <div class="space-y-6">
                     <h1 class="text-3xl font-light italic text-gray-900">
                         {{ product?.brand }} {{ product?.name }}
@@ -90,9 +88,8 @@ const getProductImage = (img: any): string => {
                             ${{ product?.price }}
                         </span>
                     </div>
-                                        <!-- Характеристики с иконками -->
+                                       
                     <div class="grid grid-cols-3 gap-3">
-                        <!-- Screen size -->
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -105,7 +102,7 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                        <!-- CPU -->
+                    
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -124,7 +121,7 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                        <!-- Number of Cores -->
+
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -136,7 +133,6 @@ const getProductImage = (img: any): string => {
                                 <p class="text-sm font-normal text-gray-700 mt-1">6</p>
                             </div>
                         </div>
-                                                <!-- Main camera -->
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -151,7 +147,7 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                        <!-- Front camera -->
+
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -168,7 +164,7 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                        <!-- Battery capacity -->
+
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -182,14 +178,14 @@ const getProductImage = (img: any): string => {
                         </div>
                     </div>
 
-                    <!-- Описание -->
+
                     <p class="text-sm text-gray-400 italic font-light leading-relaxed">
                         Enhanced capabilities thanks to an enlarged display of 6.7 inches and work without recharging
                         throughout the day.
                         Incredible photos as in weak, yes and in bright light using the new system with two cameras
                         <NuxtLink to="#" class="underline text-gray-400 hover:text-gray-600">more...</NuxtLink>
                     </p>
-                                        <!-- Кнопки -->
+
                     <div class="flex gap-3">
                         <button @click="toggleFavorite"
                             class="flex-1 border-2 border-gray-900 text-gray-900 py-3.5 rounded-lg hover:bg-gray-900 hover:text-white transition-all text-sm font-medium flex items-center justify-center gap-2">
@@ -203,9 +199,8 @@ const getProductImage = (img: any): string => {
                         </button>
                     </div>
 
-                    <!-- Инфо с иконками -->
+
                     <div class="grid grid-cols-3 gap-6">
-                        <!-- Free Delivery -->
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
@@ -220,7 +215,7 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                        <!-- In Stock -->
+
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
@@ -234,7 +229,6 @@ const getProductImage = (img: any): string => {
                                 <p class="text-sm font-normal text-gray-900">Today</p>
                             </div>
                         </div>
-                                                <!-- Guaranteed -->
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
@@ -253,7 +247,6 @@ const getProductImage = (img: any): string => {
             </div>
         </div>
 
-        <!-- Details -->
         <div class="bg-gray-50 py-16">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="bg-white rounded-2xl p-8 lg:p-12">
@@ -286,7 +279,7 @@ const getProductImage = (img: any): string => {
             </div>
         </div>
 
-        <!-- Рейтинг и Related Products секция -->
+
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="mb-8">
                 <Star />

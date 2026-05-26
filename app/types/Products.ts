@@ -26,9 +26,9 @@ export interface ProductImage {
 }
 
 export interface Characteristic {
-  characteristic: string;      // Название характеристики
-  unit_type: string;           // Единица измерения
-  value: string;               // Значение
+  characteristic: string;  
+  unit_type: string; 
+  value: string; 
 }
 
 export type ProuductCategories = 'phone' | 'tablet' | 'headphones' | 'computer' | 'accessories'

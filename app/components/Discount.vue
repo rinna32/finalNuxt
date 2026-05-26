@@ -6,7 +6,7 @@
         :key="product.id"
         class="bg-white rounded-lg p-6 relative">
 
-        <!-- ✅ Кнопка избранного с картинками (как в ProductCard) -->
+
         <button 
           @click="toggleFavorite(product)"
           class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors"
@@ -53,10 +53,10 @@ const { data } = await useFetch<Products[]>(
   "http://localhost:1452/api/products/",
 )
 
-// ✅ Импортируем функции для работы с избранным
+
 const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites()
 
-// ✅ Переключение статуса избранного
+
 const toggleFavorite = (product: Products) => {
   if (isInFavorites(product.id)) {
     removeFromFavorites(product.id)

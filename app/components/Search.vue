@@ -1,16 +1,15 @@
-<!-- app/components/Search.vue -->
 <script setup lang="ts">
 import type { Products } from '~/types/Products'
 
 const query = ref('')
 const products = ref<Products[]>([])
 
-// Загружаем товары один раз
+
 onMounted(async () => {
   products.value = await $fetch<Products[]>('http://localhost:1452/api/products/')
 })
 
-// Фильтрация
+
 const results = computed(() => {
   if (!query.value.trim()) return []
   const q = query.value.toLowerCase()
@@ -20,18 +19,18 @@ const results = computed(() => {
   )
 })
 
-// ✅ Исправлено: корректная работа с типами
+
 const getImage = (p: Products): string | undefined => {
   const first = p.images?.[0] as any
   
   if (!first) return undefined
   
-  // Если это строка (как в API)
+
   if (typeof first === 'string') {
     return first.startsWith('http') ? first : `http://localhost:1452/${first}`
   }
   
-  // Если это объект ProductImage
+
   if (first?.image_link) {
     const link = first.image_link
     return link.startsWith('http') ? link : `http://localhost:1452/${link}`
@@ -49,7 +48,6 @@ const select = (p: Products) => {
 <template>
   <div class="relative w-full max-w-md">
     
-    <!-- Поле ввода -->
     <input
       v-model="query"
       placeholder="Search..."
@@ -57,7 +55,7 @@ const select = (p: Products) => {
     />
     <img src="/Search.png" class="absolute left-3 top-1.5 text-gray-400"/>
 
-    <!-- Результаты -->
+
     <div v-if="query.trim() && results.length" class="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow overflow-hidden">
       <div 
         v-for="p in results" 

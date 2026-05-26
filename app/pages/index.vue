@@ -125,7 +125,7 @@ const selectTab = (tabName) => {
         Browse By Category
       </h2>
       <div class="flex flex-wrap justify-center gap-5">
-        <!-- Phones -->
+
           <NuxtLink to="/catalog">
             <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
@@ -134,7 +134,7 @@ const selectTab = (tabName) => {
         </div>
           </NuxtLink>
         
-        <!-- Smart Watches -->
+
          <NuxtLink to="/catalog">
           <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
@@ -143,7 +143,7 @@ const selectTab = (tabName) => {
         </div>
          </NuxtLink>
         
-        <!-- Cameras -->
+
          <NuxtLink to="/catalog">
           <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
@@ -152,7 +152,7 @@ const selectTab = (tabName) => {
         </div>
          </NuxtLink>
         
-        <!-- Headphones -->
+
          <NuxtLink to="/catalog">
           <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
@@ -161,7 +161,7 @@ const selectTab = (tabName) => {
         </div>
          </NuxtLink>
         
-        <!-- Computers -->
+
          <NuxtLink to="/catalog">
           <div
           class="w-[136px] h-[136px] bg-[#EBEBEB] rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors shrink-0">
@@ -214,7 +214,7 @@ const selectTab = (tabName) => {
       </div>
 
 
-      <ProductCard v-for="product in products" :key="product.id" :product="product" />
+      <ProductCard v-for="product in products?.slice(0, 8)" :key="product.id" :product="product" />
 
     </div>
   </div>

@@ -29,8 +29,7 @@ const handleAddToCart = () => {
     <button 
       @click="toggleFavorite"
       class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors z-10"
-      aria-label="Add to favorites"
-    >
+      aria-label="Add to favorites">
       <img 
         :src="isFavorite ? '/Favorite_duotone.svg' : '/Favorites.png'" 
         class="w-7 h-7"

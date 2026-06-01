@@ -4,7 +4,7 @@ import type { Products } from '~/types/Products'
 const route = useRoute()
 const productId = route.params.id
 
-const activeImage = ref(0)
+
 
 const { addToCart } = useCart()
 const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites()
@@ -13,24 +13,24 @@ const { data: product } = await useFetch<Products>(
     `http://localhost:1452/api/products/${productId}`
 )
 
-const isFavorite = computed(() => product.value ? isInFavorites(product.value.id) : false)
+const favoriteStatus = computed(() => product.value ? isInFavorites(product.value.id) : false)
 
-const toggleFavorite = () => {
+
+const switchFavorite = () => {
     if (!product.value) return
-    if (isFavorite.value) {
+    if (favoriteStatus.value) {
         removeFromFavorites(product.value.id)
     } else {
         addToFavorites(product.value)
     }
 }
 
-const handleAddToCart = () => {
+const onAddToCart = () => {
     if (!product.value) return
     addToCart(product.value, 1)
 }
 
-
-const getProductImage = (img: any): string => {
+const resolveImage = (img: any): string => {
     if (!img) return '/placeholder.png'
     if (typeof img === 'object' && img.image_link) {
         const link = img.image_link
@@ -53,18 +53,16 @@ const getProductImage = (img: any): string => {
             </NuxtLink>
         </div>
 
-   
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-              
+
                 <div class="flex gap-4">
                     <div class="flex-1 flex items-center justify-center bg-white">
-                        <img :src="getProductImage(product?.images?.[activeImage])" :alt="product?.name"
+                        <img :src="resolveImage(product?.images?.[0])" :alt="product?.name"
                             class="max-h-[480px] object-contain" />
                     </div>
                 </div>
-
 
                 <div class="space-y-6">
                     <h1 class="text-3xl font-light italic text-gray-900">
@@ -86,7 +84,6 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-                    
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <img src="/smartphone-rotate-2-svgrepo-com 2.png"/>
                             <div>
@@ -100,7 +97,6 @@ const getProductImage = (img: any): string => {
                                 </p>
                             </div>
                         </div>
-
 
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <img src="/smartphone-rotate-2-svgrepo-com 2-2.png"/>
@@ -117,7 +113,6 @@ const getProductImage = (img: any): string => {
                             </div>
                         </div>
 
-
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                            <img src="/smartphone-rotate-2-svgrepo-com 2-4.png"/>
                             <div>
@@ -125,7 +120,6 @@ const getProductImage = (img: any): string => {
                                 <p class="text-sm font-normal text-gray-700 mt-1">12 MP</p>
                             </div>
                         </div>
-
 
                         <div class="bg-gray-50 rounded-xl p-4 flex items-start gap-3">
                             <img src="/smartphone-rotate-2-svgrepo-com 2-5.png"/>
@@ -136,7 +130,6 @@ const getProductImage = (img: any): string => {
                         </div>
                     </div>
 
-
                     <p class="text-sm text-gray-400 italic font-light leading-relaxed">
                         Enhanced capabilities thanks to an enlarged display of 6.7 inches and work without recharging
                         throughout the day.
@@ -145,18 +138,17 @@ const getProductImage = (img: any): string => {
                     </p>
 
                     <div class="flex gap-3">
-                        <button @click="toggleFavorite"
+                        <button @click="switchFavorite"
                             class="flex-1 border-2 border-gray-900 text-gray-900 py-3.5 rounded-lg hover:bg-gray-900 hover:text-white transition-all text-sm font-medium flex items-center justify-center gap-2">
-                            
-                            {{ isFavorite ? 'Added' : 'Add to Wishlist' }}
+                            {{ favoriteStatus ? 'Added' : 'Add to Wishlist' }}
                         </button>
 
-                        <button @click="handleAddToCart"
+
+                        <button @click="onAddToCart"
                             class="flex-1 bg-gray-900 text-white py-3.5 rounded-lg hover:bg-gray-700 transition-all text-sm font-medium">
                             Add to Cart
                         </button>
                     </div>
-
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class="flex items-start gap-3">
@@ -168,7 +160,6 @@ const getProductImage = (img: any): string => {
                                 <p class="text-sm font-normal text-gray-900">1-2 day</p>
                             </div>
                         </div>
-
 
                         <div class="flex items-start gap-3">
                             <div class="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -224,7 +215,6 @@ const getProductImage = (img: any): string => {
                 </div>
             </div>
         </div>
-
 
         <div class="max-w-7xl mx-auto px-6 py-12">
             <div class="mb-8">

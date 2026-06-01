@@ -1,22 +1,12 @@
 <template>
   <div class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div 
-        v-for="(product, index) in data?.slice(0, 4)" 
-        :key="product.id"
-        class="bg-white rounded-lg p-6 relative">
+      <div v-for="(product) in data?.slice(0, 4)" :key="product.id" class="bg-white rounded-lg p-6 relative">
 
-
-        <button 
-          @click="toggleFavorite(product)"
-          class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors"
-          aria-label="Add to favorites"
-        >
-          <img 
-            :src="isInFavorites(product.id) ? '/Favorite_duotone.svg' : '/Favorites.png'" 
+        <button @click="toggleFavorite(product)" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50 transition-colors" aria-label="Add to favorites">
+          <img :src="isInFavorites(product.id) ? '/Favorite_duotone.svg' : '/Favorites.png'" 
             class="w-7 h-7"
-            alt="Favorite"
-          />
+            alt="Favorite"/>
         </button>
 
         <div class="flex justify-center mb-4">

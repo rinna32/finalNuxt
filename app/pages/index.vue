@@ -1,29 +1,27 @@
-<script setup>
-import { ref, computed } from 'vue'
+<script setup lang="ts">
+import type { Products } from '~/types/Products' 
 
+const tabs = [
+  { label: 'New Arrival', id: 1 },
+  { label: 'Bestseller', id: 2 },
+  { label: 'Featured Products', id: 3 }
+] as const
 
-const categoryMap = {
-  'New Arrival': 1,
-  'Bestseller': 2,
-  'Featured Products': 3
-}
+type TabLabel = typeof tabs[number]['label']
 
-
-const activeTab = ref('New Arrival')
-
+const activeTab = ref<TabLabel>(tabs[0].label)
 
 const categoryUrl = computed(() => {
-  const id = categoryMap[activeTab.value]
+  const id = tabs.find(t => t.label === activeTab.value)?.id
   return `http://localhost:1452/api/category/${id}`
 })
 
-
-const { data: products, pending } = await useFetch(categoryUrl, {
+const { data: products, pending } = await useFetch<Products[]>(categoryUrl, {
   default: () => []
 })
 
-const selectTab = (tabName) => {
-  activeTab.value = tabName
+const selectTab = (label: TabLabel) => {
+  activeTab.value = label
 }
 </script>
 

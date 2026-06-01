@@ -25,6 +25,8 @@ export interface ProductImage {
   image_link: string;
 }
 
+
+
 export interface Characteristic {
   characteristic: string;  
   unit_type: string; 
